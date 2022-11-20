@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>User Detail</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="./css/style.css" rel="stylesheet" type="text/css" media="all">
+
+
+</head>
+
+<body>
+    <header>
+        <div class="container">
+            <div class="topnav">
+                <a class="active" href="#">Home</a>
+                <a href="./Contact.html">Contact</a>
+                <div class="search-container">
+                    <form action="/action_page.php">
+                        <input type="text" placeholder="Search Contact Detail " name="search">
+                        <button type="submit">Submit</button>
+                    </form>
+                </div>
+            </div>
+
+        </div>
+    </header>
+
+
+    <section class="addUser">
+        <div class="container">
+            <div class="">
+                <h1>List Of user </h1>
+
+                <label for="cars">SortBy:</label>
+
+                <select name="cars" class="formInput" id="cars">
+                    <option value="Name">Name</option>
+                    <option value="Contact">Contact</option>
+
+                </select>
+
+                <div class="table" id="tblData">
+                    <table>
+                        <tr>
+                            <th>Name</th>
+                            <th>Email</th>
+                            <th>Contact Number</th>
+                            <th>Action</th>
+                        </tr>
+                        <tr>
+                            <td>Jill</td>
+                            <td>Smith</td>
+                            <td>50</td>
+                            <td>
+                                <button type="button">Edit</button>
+                                <button type="button">Update</button>
+                                <button type="button">Delete</button>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>Eve</td>
+                            <td>Jackson</td>
+                            <td>94</td>
+                            <td>
+                                <button type="button">Edit</button>
+                                <button type="button">Update</button>
+                                <button type="button">Delete</button>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>Adam</td>
+                            <td>Johnson</td>
+                            <td>67</td>
+                            <td>
+                                <button type="button">Edit</button>
+                                <button type="button">Update</button>
+                                <button type="button">Delete</button>
+                            </td>
+                        </tr>
+                    </table>
+
+                </div>
+
+
+            </div>
+
+        </div>
+
+
+    </section>
+
+
+
+    <script src="https://code.jquery.com/jquery-3.6.1.js"
+        integrity="sha256-3zlB5s2uwoUzrXK3BT7AX3FyvojsraNFxCc2vC/7pNI=" crossorigin="anonymous"></script>
+    <script src="./js/custom.js"></script>
+
+
+
+
+</body>
+
+</html>
