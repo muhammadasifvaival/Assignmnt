@@ -15,10 +15,10 @@
         <div class="container">
             <div class="topnav">
                 <a class="active" href="#">Home</a>
-                <a href="./Contact.html">Contact</a>
+                <a href="./Contact.html">Add Contact</a>
                 <div class="search-container">
-                    <form action="/action_page.php">
-                        <input type="text" placeholder="Search Contact Detail " name="search">
+                    <form action="" id="searchForm">
+                        <input type="text" placeholder="Search Contact Detail " name="search" id="search">
                         <button type="submit">Submit</button>
                     </form>
                 </div>
@@ -31,54 +31,31 @@
     <section class="addUser">
         <div class="container">
             <div class="">
-                <h1>List Of user </h1>
+                <h1>List of contacts </h1>
 
-                <label for="cars">SortBy:</label>
+                <label for="sortBy">Sort By:</label>
 
-                <select name="cars" class="formInput" id="cars">
+                <select name="sortBy" class="formInput" id="sortBy">
+                    <option disabled selected hidden>Select column to sort by</option>
                     <option value="Name">Name</option>
                     <option value="Contact">Contact</option>
+                    <option value="Email">Email</option>
 
                 </select>
 
                 <div class="table" id="tblData">
                     <table>
-                        <tr>
-                            <th>Name</th>
-                            <th>Email</th>
-                            <th>Contact Number</th>
-                            <th>Action</th>
-                        </tr>
-                        <tr>
-                            <td>Jill</td>
-                            <td>Smith</td>
-                            <td>50</td>
-                            <td>
-                                <button type="button">Edit</button>
-                                <button type="button">Update</button>
-                                <button type="button">Delete</button>
-                            </td>
-                        </tr>
-                        <tr>
-                            <td>Eve</td>
-                            <td>Jackson</td>
-                            <td>94</td>
-                            <td>
-                                <button type="button">Edit</button>
-                                <button type="button">Update</button>
-                                <button type="button">Delete</button>
-                            </td>
-                        </tr>
-                        <tr>
-                            <td>Adam</td>
-                            <td>Johnson</td>
-                            <td>67</td>
-                            <td>
-                                <button type="button">Edit</button>
-                                <button type="button">Update</button>
-                                <button type="button">Delete</button>
-                            </td>
-                        </tr>
+                        <thead>
+                            <tr>
+                                <th>Name</th>
+                                <th>Email</th>
+                                <th>Contact Number</th>
+                                <th>Action</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <!-- Data added through JS -->
+                        </tbody>
                     </table>
 
                 </div>
@@ -96,10 +73,32 @@
     <script src="https://code.jquery.com/jquery-3.6.1.js"
         integrity="sha256-3zlB5s2uwoUzrXK3BT7AX3FyvojsraNFxCc2vC/7pNI=" crossorigin="anonymous"></script>
     <script src="./js/custom.js"></script>
-
-
-
-
+    <script>
+        $(document).ready(function() {
+            displayAllContacts(myContacts);
+        });
+        $('#searchForm').submit(function(e){
+            e.preventDefault();
+            let search = $('#search').val();
+            filteredArray = myContacts.filter((a)=>{if(a.name.includes(search)||a.email.includes(search)|| a.number.includes(search)){return a}});
+            emptyTable();
+            displayAllContacts(filteredArray);
+        })
+        $('#sortBy').change(function(){
+            let selected = $(this).val();
+            if(selected == "Name"){
+                filteredArray.sort((a,b) => (a.name > b.name) ? 1 : ((b.name > a.name) ? -1 : 0));
+            }
+            else if(selected == "Contact"){
+                filteredArray.sort((a,b) => (a.number > b.number) ? 1 : ((b.number > a.number) ? -1 : 0));
+            }
+            else if(selected == "Email"){
+                filteredArray.sort((a,b) => (a.email > b.email) ? 1 : ((b.email > a.email) ? -1 : 0));
+            }
+            emptyTable();
+            displayAllContacts(filteredArray);
+        })
+    </script>
 </body>
 
 </html>
