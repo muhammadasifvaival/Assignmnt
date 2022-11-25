@@ -11,7 +11,7 @@
 </head>
 
 <body>
-    <header>
+    <header class="topnav">
         <div class="container">
             <div class="topnav">
                 <a href="./index.html">Home</a>
@@ -24,21 +24,21 @@
 
     <section class="addContact">
         <div class="container">
-            <div class="">
+            <div class="container-inner">
                 <h1>Enter contact detail</h1>
 
                 <div class="form" id="contactForm">
                     <form action="">
-                        <label for="fname">Name</label><br>
+                        <label for="fname">Name</label><br><br>
                         <input class="formInput" type="text" id="fname" name="fname" placeholder="xyz"><br>
-                        <label for="email">Email</label><br>
+                        <label for="email">Email</label><br><br>
                         <input class="formInput" type="email" id="email" name="email" placeholder="abc@gmail.com"><br><br>
 
                         <label for="phone">Enter a phone number:</label><br><br>
-                        <input class="formInput" type="tel" id="phone" name="phone" placeholder="123-45-678"
-                            pattern="[0-9]{3}-[0-9]{2}-[0-9]{3}" required><br><br>
-                        <small>Format: 123-45-678</small><br><br>
-                        <input type="submit" value="Submit" id="submit">
+                        <input class="formInput" type="text" id="phone" name="phone" placeholder="123-45-678"
+                                required><br><br>
+
+                        <input class="search-btn" type="submit" value="Save" id="submit">
                         <!-- Error class -->
                         <!-- <p class="error">Please Fill All Detail </p> -->
                     </form>
