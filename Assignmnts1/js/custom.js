@@ -77,7 +77,7 @@ function addContactInTable(data, index){
         <td>${data.email}</td>
         <td>${data.number}</td>
         <td>
-            <button class="editbtn" type="button" onclick="editContact(${index})">Edit</button>
+            <button class="editbtn" type="button"><a href='./EditContact.html?i=${index}'>Edit</a></button>
             <button class="deletebtn" type="button"  onclick="deleteContact(${index})">Delete</button>
         </td>
     </tr>`)

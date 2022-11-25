@@ -1,77 +1,75 @@
 <!DOCTYPE html>
 <html>
 
-<head>
-    <title>User Detail</title>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link href="./css/style.css" rel="stylesheet" type="text/css" media="all">
-
-
-</head>
-
-<body>
-    <header>
-        <div class="container">
-            <div class="topnav">
-                <a href="./index.html">Home</a>
-                <a class="active" href="#">Contact</a>
-            </div>
-
-        </div>
-    </header>
-
-
-    <section class="addContact">
-        <div class="container">
-            <div class="">
-                <h1>Edit contact detail</h1>
-
-                <div class="form" id="contactForm">
-                    <form action="">
-                        <label for="fname">Name</label><br>
-                        <input class="formInput" type="text" id="fname" name="fname" placeholder="xyz"><br>
-                        <label for="email">Email</label><br>
-                        <input class="formInput" type="email" id="email" name="email" placeholder="abc@gmail.com"><br><br>
-
-                        <label for="phone">Enter a phone number:</label><br><br>
-                        <input class="formInput" type="tel" id="phone" name="phone" placeholder="123-45-678"
-                            pattern="[0-9]{3}-[0-9]{2}-[0-9]{3}" required><br><br>
-                        <small>Format: 123-45-678</small><br><br>
-                        <input type="submit" value="Submit" id="submit">
-                        <!-- Error class -->
-                        <!-- <p class="error">Please Fill All Detail </p> -->
-                    </form>
-
+    <head>
+        <title>User Detail</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link href="./css/style.css" rel="stylesheet" type="text/css" media="all">
+    
+    
+    </head>
+    
+    <body>
+        <header class="topnav">
+            <div class="container">
+                <div class="topnav">
+                    <a href="./index.html">Home</a>
+                    <a class="active" href="#">Contact</a>
                 </div>
+    
             </div>
-
-        </div>
-
-
-    </section>
-
-
-
-    <script src="https://code.jquery.com/jquery-3.6.1.js"
+        </header>
+    
+    
+        <section class="addContact">
+            <div class="container">
+                <div class="container-inner">
+                    <h1>Edit contact detail</h1>
+    
+                    <div class="form" id="contactForm">
+                        <form action="">
+                            <label for="fname">Name</label><br><br>
+                            <input class="formInput" type="text" id="fname" name="fname" placeholder="xyz"><br>
+                            <label for="email">Email</label><br><br>
+                            <input class="formInput" type="email" id="email" name="email" placeholder="abc@gmail.com"><br><br>
+    
+                            <label for="phone">Enter a phone number:</label><br><br>
+                            <input class="formInput" type="text" id="phone" name="phone" placeholder="123-45-678"
+                                    required><br><br>
+    
+                            <input class="search-btn" type="submit" value="Save" id="submit">
+                            <!-- Error class -->
+                            <!-- <p class="error">Please Fill All Detail </p> -->
+                        </form>
+    
+                    </div>
+                </div>
+    
+            </div>
+    
+    
+        </section>
+    
+        <script src="https://code.jquery.com/jquery-3.6.1.js"
         integrity="sha256-3zlB5s2uwoUzrXK3BT7AX3FyvojsraNFxCc2vC/7pNI=" crossorigin="anonymous"></script>
-    <script src="./js/custom.js"></script>
-    <script>
-        let param = (new URL(document.location)).searchParams;
-        var index = parseInt(param.get("i"));
-        $(document).ready(function() {
-            $('#email').val(myContacts[index].email);
-            $('#fname').val(myContacts[index].name);
-            $('#phone').val(myContacts[index].number);
-        });
-        $('#contactForm').submit(function(e){
-            e.preventDefault();
-            updateContact(index);
-        })
-    </script>
-
-
-
-</body>
+        <script src="./js/custom.js"></script>
+        <script>
+            let param = (new URL(document.location)).searchParams;
+            var index = parseInt(param.get("i"));
+            $(document).ready(function() {
+                $('#email').val(myContacts[index].email);
+                $('#fname').val(myContacts[index].name);
+                $('#phone').val(myContacts[index].number);
+            });
+            $('#contactForm').submit(function(e){
+                e.preventDefault();
+                updateContact(index);
+            })
+        </script>
+    
+    
+    
+    </body>
 
 </html>
