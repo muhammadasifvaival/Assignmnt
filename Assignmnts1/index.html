@@ -6,99 +6,101 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link href="./css/style.css" rel="stylesheet" type="text/css" media="all">
-
-
 </head>
 
 <body>
-    <header>
-        <div class="container">
-            <div class="topnav">
-                <a class="active" href="#">Home</a>
-                <a href="./Contact.html">Contact</a>
+
+<header class="topnav">
+    <div class="container">
+        <div class="topnav">
+            <a class="active" href="#">Home</a>
+            <a href="./Contact.html">Contact</a>
+
+        </div>
+
+    </div>
+</header>
+
+
+<section class="addUser">
+    <div class="container">
+        <div class="container-inner">
+
+            <h1 class="mb-3">List of contacts </h1>
+            <div class="pageheading mb-3">
                 <div class="search-container">
                     <form action="" id="searchForm">
                         <input type="text" placeholder="Search Contact Detail " name="search" id="search">
-                        <button type="submit">Submit</button>
+                        <button class="search-btn" type="submit">Search</button>
                     </form>
                 </div>
-            </div>
+                <div class="sortyby">
+                    <label for="sortBy">Sort By:</label>
+                    <select name="sortBy" class="formInput" id="sortBy">
+                        <option disabled selected hidden>Select column to sort by</option>
+                        <option value="Name">Name</option>
+                        <option value="Contact">Contact</option>
+                        <option value="Email">Email</option>
 
-        </div>
-    </header>
-
-
-    <section class="addUser">
-        <div class="container">
-            <div class="">
-                <h1>List of contacts </h1>
-
-                <label for="sortBy">Sort By:</label>
-
-                <select name="sortBy" class="formInput" id="sortBy">
-                    <option disabled selected hidden>Select column to sort by</option>
-                    <option value="Name">Name</option>
-                    <option value="Contact">Contact</option>
-                    <option value="Email">Email</option>
-
-                </select>
-
-                <div class="table" id="tblData">
-                    <table>
-                        <thead>
-                            <tr>
-                                <th>Name</th>
-                                <th>Email</th>
-                                <th>Contact Number</th>
-                                <th>Action</th>
-                            </tr>
-                        </thead>
-                        <tbody>
-                            <!-- Data added through JS -->
-                        </tbody>
-                    </table>
+                    </select>
 
                 </div>
-
+            </div>
+            <div class="table styled-table" id="tblData">
+                <table>
+                    <thead>
+                    <tr>
+                        <th>Name</th>
+                        <th>Email</th>
+                        <th>Contact Number</th>
+                        <th>Action</th>
+                    </tr>
+                    </thead>
+                    <tbody>
+                    <!-- Data added through JS -->
+                    </tbody>
+                </table>
 
             </div>
-
         </div>
+    </div>
+</section>
 
 
-    </section>
 
 
 
-    <script src="https://code.jquery.com/jquery-3.6.1.js"
+
+<script src="https://code.jquery.com/jquery-3.6.1.js"
         integrity="sha256-3zlB5s2uwoUzrXK3BT7AX3FyvojsraNFxCc2vC/7pNI=" crossorigin="anonymous"></script>
-    <script src="./js/custom.js"></script>
-    <script>
-        $(document).ready(function() {
-            displayAllContacts(myContacts);
-        });
-        $('#searchForm').submit(function(e){
-            e.preventDefault();
-            let search = $('#search').val();
-            filteredArray = myContacts.filter((a)=>{if(a.name.includes(search)||a.email.includes(search)|| a.number.includes(search)){return a}});
-            emptyTable();
-            displayAllContacts(filteredArray);
-        })
-        $('#sortBy').change(function(){
-            let selected = $(this).val();
-            if(selected == "Name"){
-                filteredArray.sort((a,b) => (a.name > b.name) ? 1 : ((b.name > a.name) ? -1 : 0));
-            }
-            else if(selected == "Contact"){
-                filteredArray.sort((a,b) => (a.number > b.number) ? 1 : ((b.number > a.number) ? -1 : 0));
-            }
-            else if(selected == "Email"){
-                filteredArray.sort((a,b) => (a.email > b.email) ? 1 : ((b.email > a.email) ? -1 : 0));
-            }
-            emptyTable();
-            displayAllContacts(filteredArray);
-        })
-    </script>
+<script src="./js/custom.js"></script>
+<script>
+    $(document).ready(function() {
+        displayAllContacts(myContacts);
+    });
+    $('#searchForm').submit(function(e){
+        e.preventDefault();
+        let search = $('#search').val();
+        filteredArray = myContacts.filter((a)=>{if(a.name.includes(search)||a.email.includes(search)|| a.number.includes(search)){return a}});
+        emptyTable();
+        displayAllContacts(filteredArray);
+    })
+    $('#sortBy').change(function(){
+        let selected = $(this).val();
+        if(selected == "Name"){
+            filteredArray.sort((a,b) => (a.name > b.name) ? 1 : ((b.name > a.name) ? -1 : 0));
+        }
+        else if(selected == "Contact"){
+            filteredArray.sort((a,b) => (a.number > b.number) ? 1 : ((b.number > a.number) ? -1 : 0));
+        }
+        else if(selected == "Email"){
+            filteredArray.sort((a,b) => (a.email > b.email) ? 1 : ((b.email > a.email) ? -1 : 0));
+        }
+        emptyTable();
+        displayAllContacts(filteredArray);
+    })
+</script>
+
 </body>
 
 </html>
