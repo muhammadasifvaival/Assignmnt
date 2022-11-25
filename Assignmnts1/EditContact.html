@@ -25,7 +25,7 @@
     <section class="addContact">
         <div class="container">
             <div class="">
-                <h1>Enter contact detail</h1>
+                <h1>Edit contact detail</h1>
 
                 <div class="form" id="contactForm">
                     <form action="">
@@ -57,9 +57,16 @@
         integrity="sha256-3zlB5s2uwoUzrXK3BT7AX3FyvojsraNFxCc2vC/7pNI=" crossorigin="anonymous"></script>
     <script src="./js/custom.js"></script>
     <script>
+        let param = (new URL(document.location)).searchParams;
+        var index = parseInt(param.get("i"));
+        $(document).ready(function() {
+            $('#email').val(myContacts[index].email);
+            $('#fname').val(myContacts[index].name);
+            $('#phone').val(myContacts[index].number);
+        });
         $('#contactForm').submit(function(e){
             e.preventDefault();
-            addContact();
+            updateContact(index);
         })
     </script>
 

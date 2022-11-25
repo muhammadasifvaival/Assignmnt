@@ -1,6 +1,4 @@
 var myContacts, filteredArray;
-var editCheck = localStorage.getItem('editCheck');
-var editIndex = localStorage.getItem('editIndex');
 getAllContacts();
 function displayAllContacts(allContacts){
     debugger;
@@ -79,7 +77,7 @@ function addContactInTable(data, index){
         <td>${data.email}</td>
         <td>${data.number}</td>
         <td>
-            <button type="button" onclick="editContact(${index})">Edit</button>
+            <button type="button"><a href='./EditContact.html?i=${index}'>Edit</a></button>
             <button type="button" onclick="deleteContact(${index})">Delete</button>
         </td>
     </tr>`)
@@ -94,7 +92,7 @@ function deleteContact(index){
         myContacts.splice(index, 1);
         localStorage.setItem('myContacts', JSON.stringify(myContacts));
         emptyTable();
-        displayAllContacts();
+        displayAllContacts(myContacts);
     }
 }
 function editContact(index){
