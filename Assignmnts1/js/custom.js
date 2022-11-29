@@ -49,7 +49,6 @@ function getAllContacts(){
     }
 }
 function addContact(){
-
     let email = $('#email').val();
     let name = $('#fname').val();
     let number = $('#phone').val();
@@ -63,7 +62,6 @@ function addContact(){
     window.location.href = './index.html'
 }
 function updateContact(index){
-
     myContacts[index].email = $('#email').val();
     myContacts[index].name = $('#fname').val();
     myContacts[index].number = $('#phone').val();
